@@ -1,0 +1,188 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
+
+/* Colors */
+:root {
+  --main-bg: rgb(19,27,40);
+  --alt-bg: #172331;
+  --gradiant-bg: linear-gradient(0deg, rgba(19,27,40,1) 0%, rgba(24,39,50,1) 100%);
+  --icons-clr: #b2cce0;
+  --txt-clr-main: #ffffff;
+  --txt-clr-alt: #567E95;
+  --txt-clr-sp: #B18E1F;
+
+    /* Typography */
+    --fs-body: clamp(1.125rem, 1.0893rem + 0.1786vw, 1.25rem);
+    --fs-heading: clamp(1.875rem, 1.5179rem + 1.7857vw, 3.125rem);
+
+    /* Utilities */
+    --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    --radius: 6px;
+  
+    /* Spaces */
+    --space-3xs-2xs: clamp(0.31rem, calc(0.20rem + 0.54vw), 0.63rem);
+    --space-2xs-xs: clamp(0.56rem, calc(0.43rem + 0.65vw), 0.94rem);
+    --space-xs-s: clamp(0.88rem, calc(0.74rem + 0.65vw), 1.25rem);
+    --space-s-m: clamp(1.13rem, calc(0.86rem + 1.30vw), 1.88rem);
+    --space-m-l: clamp(1.69rem, calc(1.40rem + 1.41vw), 2.50rem);
+    --space-l-xl: clamp(2.25rem, calc(1.73rem + 2.61vw), 3.75rem);
+    --space-xl-2xl: clamp(3.38rem, calc(2.81rem + 2.83vw), 5.00rem);
+    --space-2xl-3xl: clamp(4.50rem, calc(3.46rem + 5.22vw), 7.50rem);
+}
+
+/* Start of Global Rules */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--main-bg);
+  direction: rtl;
+  font-family: 'Almarai', sans-serif;
+  font-size: var(--fs-body);
+  color: var(--txt-clr-main);
+  text-align: center;
+}
+
+h1 {
+  font-size: var(--fs-heading);
+}
+
+.container {
+  padding-left: var(--space-s-m);
+  padding-right: var(--space-s-m);
+  margin: 0 auto;
+  width: 90vw;
+  max-width: 450px;
+}
+
+/* End of Global Rules */
+
+/* Start of Header */
+
+header {
+  padding: var(--space-m-l) 0;
+  background: var(--gradiant-bg);
+  box-shadow: var(--shadow);
+}
+
+header .container {
+  position: relative;
+}
+
+.time {
+  position: absolute;
+  top: -1rem;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: var(--space-s-m);
+}
+
+/* End of Header */
+
+/* Start of Main App */
+
+main {
+  padding: var(--space-s-m) 0;
+}
+
+.text {
+  padding: var(--space-l-xl) var(--space-s-m);
+  background-color: var(--alt-bg);
+  font-weight: 200;
+  line-height: 2.4;
+  font-size: var(--fs-body);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-s-m);
+  transition: .5s;
+  /* min-height: 280px; */
+  overflow: hidden;
+  position: relative;
+}
+
+.text div {
+  position: absolute;
+  transform: translateX(-150%);
+  opacity: 0;
+  transition: .5s;
+}
+
+.text div.active {
+  position: static;
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.text div.done {
+  position: absolute;
+  transform: translateX(150%);
+  opacity: 1;
+}
+
+
+.text span {
+  color: var(--txt-clr-sp);
+}
+
+.btns {
+  background-color: var(--gradiant-bg);
+  box-shadow: var(--shadow);
+  padding: var(--space-xl-2xl) var(--space-s-m);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.tools {
+  position: absolute;
+  width: 100%;
+  padding: 0 var(--space-s-m);
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#reset {
+  border: none;
+  padding: var(--space-2xs-xs);
+  background-color: transparent;
+  color: var(--txt-clr-alt);
+  font-size: var(--fs-body);
+  cursor: pointer;
+}
+
+.rpt-times {
+  color: var(--txt-clr-sp);
+}
+
+#rpt-btn {
+  border: none;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  font-size: var(--fs-heading);
+  background-color: var(--icons-clr);
+  color: var(--main-bg);
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  transition: .2s;
+  cursor: pointer;
+}
+
+#rpt-btn:active {
+  transform: scale(1.2);
+}
+
+
+/* End of Main App */
