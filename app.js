@@ -23,15 +23,19 @@ window.addEventListener("DOMContentLoaded", () => {
     hrs = (hours > 9 )? hours : `0${hours}`;
   }
 
-  if (hours > 15) {
+  if (hours >= 15) {
     getText("pm");
     nowTime.textContent = `${hrs}:${mins} م`;
   }
-  else {
+  else if (hours > 12) {
+    getText("am");
+    nowTime.textContent = `${hrs}:${mins} م`;
+    timeType.innerHTML = `<i class="fa-solid fa-sun"></i>`;
+  } else {
     getText("am");
     nowTime.textContent = `${hrs}:${mins} ص`;
     timeType.innerHTML = `<i class="fa-solid fa-sun"></i>`;
-    title.textContent = "أذكار الصباح"
+    title.textContent = "أذكار الصباح";
   }
 
   resetBtn.addEventListener("click", () => {
